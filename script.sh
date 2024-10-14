@@ -7,7 +7,7 @@ X=("1000" "10000" "100000")
 Y=("1000" "10000" "100000")
 
 # Cria o arquivo CSV e adiciona o cabeçalho apenas uma vez
-echo "numero_threads, intervalo_x, intervalo_y, resultado, tempo" > resultado.csv
+echo "numero_threads,intervalo_x,intervalo_y,resultado,tempo" > resultado.csv
 
 # Itera sobre cada conjunto de valores no vetor
 for th in "${threads[@]}"; do
@@ -22,7 +22,7 @@ for th in "${threads[@]}"; do
 
             # Verifica se os valores não estão vazios e grava no CSV
             if [ -n "$resultado" ] && [ -n "$tempo" ]; then
-                echo "$th, $x, $y, $resultado, $tempo" >> resultado.csv
+                echo "$th,$x,$y,$resultado,$tempo" >> resultado.csv
                 echo "Valores salvos em resultado.csv para $th threads, x = $x e y = $y"
                 echo "$th threads, x = $x e y = $y, Resultado: $resultado, Tempo: $tempo, DONE" >> log.txt
             else
